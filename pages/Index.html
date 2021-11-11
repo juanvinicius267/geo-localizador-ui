@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #map {
+        height: 700px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Localizador</title>
+    <link rel="icon" href="../photos/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        <script src="../src/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="" class="navbar-brand"><img class="navbar-brand" src="../photos/sao-judas-logo.png"
+                alt="Logo da São Judas" width="100" height="30" href="#">Geo-Localizador</a>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/pages/Index.html">Inicial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/Basic-data.html">Dados Básicos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="flowId">Fluxo</a>
+                </li>
+            </ul>
+        </div>
+        <span class="navbar-text" style="text-align: right;">
+            <div id="user"></div>
+        </span>
+        <a class="nav-link" id="logout">Sair</a>
+    </nav>
+    <div class="container">
+        <!-- The Modal -->
+        <div class="modal" id="mainModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="modal-title">Escolha o fluxo!</h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div id="status-bar"></div>
+                    <!-- Modal body -->
+                    <div class="modal-body" id="modal-body">
+                        <div class="panel-body ">
+                            <p>Escolha os fluxos que você gostaria de consultar</p>
+                            <div>
+                                <input class="checkBoxStart" type="checkbox" flowid="1" name="scales" unchecked="">
+                                <label for="scales">Terrestre</label>
+                            </div>
+                            <div>
+                                <input class="checkBoxStart" type="checkbox" flowid="2" name="scales" unchecked="">
+                                <label for="scales">Maritimo</label>
+                            </div>                           
+                        </div>             
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" id="modal-footer">
+                        <button id="modal-btn-close" type="button" class="btn btn-danger"
+                            data-dismiss="modal">Fechar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>    
+    <div id="map"></div>
+    <div id="div-more-infos" >
+        
+    </div>
+    </div>
+    <footer class="bg-dark text-center text-white">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-white" href="#">São Judas</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+<script src="../src/jquery.min.js"></script>
+<script src="../scripts/ajaxcall.js"></script>
+<script src="../scripts/routes.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/index/index.js"></script>
+
+</html>
